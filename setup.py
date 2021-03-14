@@ -41,7 +41,7 @@ class RunTests(Command):
 
 with codecs.open('README.rst', 'r', 'utf-8') as fd:
   setup(
-      name='yapf-santosh',
+      name='yapf',
       version=yapf.__version__,
       description='A formatter for Python code.',
       long_description=fd.read(),
