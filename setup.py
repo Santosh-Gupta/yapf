@@ -41,7 +41,7 @@ class RunTests(Command):
 
 with codecs.open('README.rst', 'r', 'utf-8') as fd:
   setup(
-      name='yapf',
+      name='yapf-santosh',
       version=yapf.__version__,
       description='A formatter for Python code.',
       long_description=fd.read(),
@@ -49,7 +49,7 @@ with codecs.open('README.rst', 'r', 'utf-8') as fd:
       author='Google Inc.',
       maintainer='Bill Wendling',
       maintainer_email='morbo@google.com',
-      packages=['yapf', 'yapf.yapflib', 'yapftests'],
+      packages=['yapf-santosh', 'yapf.yapflib', 'yapftests'],
       classifiers=[
           'Development Status :: 4 - Beta',
           'Environment :: Console',
