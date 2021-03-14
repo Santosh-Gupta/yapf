@@ -217,6 +217,8 @@ class _SplitPenaltyAssigner(pytree_visitor.PyTreeVisitor):
                        BEFORE_PENALITY if before else DOTTED_NAME)
       _SetSplitPenalty(node.children[1],
                        DOTTED_NAME if before else BEFORE_PENALITY)
+      _SetSplitPenalty(node.children[-1],
+                       DOTTED_NAME if before else BEFORE_PENALITY)
     elif len(node.children) == 2:
       # Don't split an empty argument list if at all possible.
       _SetSplitPenalty(node.children[1], VERY_STRONGLY_CONNECTED)
