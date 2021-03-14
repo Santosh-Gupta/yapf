@@ -209,10 +209,14 @@ class _SplitPenaltyAssigner(pytree_visitor.PyTreeVisitor):
     # trailer ::= '(' [arglist] ')' | '[' subscriptlist ']' | '.' NAME
     if node.children[0].value == '.':
       before = style.Get('SPLIT_BEFORE_DOT')
+      if node.children[-1].value == ')' or node.children[-1].value == ']':
+        BEFORE_PENALITY = CONNECTED
+      else:
+        BEFORE_PENALITY = VERY_STRONGLY_CONNECTED
       _SetSplitPenalty(node.children[0],
-                       VERY_STRONGLY_CONNECTED if before else DOTTED_NAME)
+                       BEFORE_PENALITY if before else DOTTED_NAME)
       _SetSplitPenalty(node.children[1],
-                       DOTTED_NAME if before else VERY_STRONGLY_CONNECTED)
+                       DOTTED_NAME if before else BEFORE_PENALITY)
     elif len(node.children) == 2:
       # Don't split an empty argument list if at all possible.
       _SetSplitPenalty(node.children[1], VERY_STRONGLY_CONNECTED)
